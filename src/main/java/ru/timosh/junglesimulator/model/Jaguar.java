@@ -8,11 +8,11 @@ public class Jaguar {
 
     private int health = 100;
     private int energy = 100;
-    private final double FANGS = 3.5;
+    private final double FANGS = 1.5;
 
-    public void energyCheker(Jaguar jaguar) {
-        return this.health;
-    }
+/*    public void energyCheker(Jaguar jaguar) {
+        return this.energy;
+    }*/
 
     public void setHealth(int health) {
         this.health = health;

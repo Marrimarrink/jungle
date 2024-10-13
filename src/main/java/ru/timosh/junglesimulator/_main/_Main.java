@@ -8,6 +8,5 @@ public class _Main {
         Jaguar jaguar = new Jaguar();
         GetEvent getEvent = new GetEvent();
         getEvent.activateEvent(jaguar);
-
     }
 }
