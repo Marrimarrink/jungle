@@ -3,17 +3,6 @@ package ru.timosh.junglesimulator.util;
 import ru.timosh.junglesimulator.model.Jaguar;
 
 public class GetEvent {
-    //0 -30 30 % Ягуар поспал + 30 энергии, +20 здоровья (сделано)
-    //30 -35 5%ягуар поиграл - 4 энергии (сделано)
-    //35 -45 10%сидел в засаде -1 энергия (сделано)
-    //45 - 50 5%плавал - 3 энергии (сделано)
-    //50 -60 10%пил воду +2  здоровье (сделано)
-    //60 - 65 5%ягуар  съел оленя -15 энергия, + 4 здоровья (сделано)
-    //65 - 75 10%ягуар  съел рыбу -2 энергия +1здоровье (сделано)
-    //75 - 80 5%ягуар отдыхал на дереве +10 энергии + 5 здоровья (сделано)
-    //80 - 90 10%ягуар пробежал - 7 энергии (сделано)
-    //90- 95 5% на ягуара напала змея - 5 здоровья -10 энергии (сделано)
-    //95 - 100 5%на ягуара напал охотник -20 здоровья - 7 энергии (сделано)
 
     public void activateEvent(Jaguar jaguar) {
 
@@ -60,7 +49,7 @@ public class GetEvent {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-      //  jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар хорошенько выспался! Текущая энергия: " + jaguar.getEnergy() + "Текущее здоровье: " + jaguar.getHealth());
     }
@@ -73,7 +62,7 @@ public class GetEvent {
             energy = 0;
         }
         jaguar.setEnergy(energy);
-    //    jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар поиграл и отлично повеселился! Текущая энергия: " + jaguar.getEnergy());
     }
@@ -86,7 +75,7 @@ public class GetEvent {
             energy = 0;
         }
         jaguar.setEnergy(energy);
-    //    jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар притаился в засаде! Текущая энергия: " + jaguar.getEnergy());
     }
@@ -99,7 +88,7 @@ public class GetEvent {
             energy = 0;
         }
         jaguar.setEnergy(energy);
-     //   jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар переплывал реку! Текущая энергия: " + jaguar.getEnergy());
     }
@@ -112,7 +101,7 @@ public class GetEvent {
             health = 100;
         }
         jaguar.setHealth(health);
-    //    jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар попил водичку! Текущее здоровье: " + jaguar.getHealth());
     }
@@ -125,13 +114,13 @@ public class GetEvent {
         if (energy < 0) {
             energy = 0;
         }
-        health = health + (int)(jaguar.getFANGS() * 4);
+        health = health + (int) (jaguar.getFANGS() * 4);
         if (health > 100) {
             health = 100;
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-       // jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар знатно обожрался тушкой оленя! Текущая энергия: " + jaguar.getEnergy() + " Текущее здоровье: " + jaguar.getHealth());
     }
@@ -144,13 +133,13 @@ public class GetEvent {
         if (energy < 0) {
             energy = 0;
         }
-        health = health + (int)(jaguar.getFANGS() * 1);
+        health = health + (int) (jaguar.getFANGS() * 1);
         if (health > 100) {
             health = 100;
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-      //  jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар перекусил рыбкой! Текущая энергия: " + jaguar.getEnergy() + " Текущее здоровье: " + jaguar.getHealth());
     }
@@ -169,7 +158,7 @@ public class GetEvent {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-    //    jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар отдохнул на дереве! Текущая энергия: " + jaguar.getEnergy() + " Текущее здоровье: " + jaguar.getHealth());
     }
@@ -181,12 +170,10 @@ public class GetEvent {
             energy = 0;
         }
         jaguar.setEnergy(energy);
-      //  jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар бегал! Текущая энергия: " + jaguar.getEnergy());
     }
-
-//attacked by a snake and a hunter
 
     private void attackedSnakeEvent(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
@@ -200,14 +187,14 @@ public class GetEvent {
         if (health < 0) {
             health = 0;
         }
-       jaguar.setEnergy(energy);
+
+        jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-      //  jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар вступил в схватку с анакондой! Текущая энергия: " + jaguar.getEnergy() + " Текущее здоровье: " + jaguar.getHealth());
     }
 
-    //энергия =  0 - 5 здоровья (сделано)
 
     private void attackedHunterEvent(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
@@ -223,21 +210,21 @@ public class GetEvent {
         }
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
-     //   jaguar.energyCheker(jaguar);
+        checkEnergy(jaguar);
 
         System.out.println("Ягуар вступил в схватку с анакондой! Текущая энергия: " + jaguar.getEnergy() + " Текущее здоровье: " + jaguar.getHealth());
     }
 
-    private boolean checkStatus(Jaguar jaguar){
-        if (jaguar.getEnergy() <= 0) {
+    private boolean checkStatus(Jaguar jaguar) {
+        System.out.println("Энергия: " + jaguar.getEnergy() + ", Здоровье: " + jaguar.getHealth());
+        if (jaguar.getHealth() <= 0) {
             return false;
         } else {
             return true;
         }
     }
 
-
-    private static void checkEnergy(Jaguar jaguar) {
+    private void checkEnergy(Jaguar jaguar) {
         if (jaguar.getEnergy() <= 0) {
             int health = jaguar.getHealth();
             health = health - 5;
