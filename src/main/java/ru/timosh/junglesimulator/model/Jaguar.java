@@ -8,31 +8,30 @@ public class Jaguar {
 
     private int health = 100;
     private int energy = 100;
-    private   final float FANGS = 3.5;
+    private final double FANGS = 3.5;
 
-    public static void energyCheker(Jaguar jaguar) {
+    public void energyCheker(Jaguar jaguar) {
         return this.health;
     }
 
-    public static void setHealth(int health) {
+    public void setHealth(int health) {
         this.health = health;
 
     }
 
-    public static int getHealth() {
+    public int getHealth() {
         return this.health;
     }
 
-    public static void setEnergy(int energy) {
+    public void setEnergy(int energy) {
         this.energy = energy;
     }
 
-    public static int getEnergy() {
+    public int getEnergy() {
         return this.energy;
     }
 
-    public float getFANGS() {
+    public double getFANGS() {
         return this.FANGS;
     }
-}
 }
