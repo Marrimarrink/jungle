@@ -2,9 +2,9 @@ package ru.timosh.junglesimulator.util;
 
 import ru.timosh.junglesimulator.model.Jaguar;
 
-public class GetEvent {
+public class Simulator {
 
-    public void activateEvent(Jaguar jaguar) {
+    public void startSimulation(Jaguar jaguar) {
 
         while (checkStatus(jaguar)) {
             int eventNumber = (int) (Math.random() * 100);
@@ -217,11 +217,7 @@ public class GetEvent {
 
     private boolean checkStatus(Jaguar jaguar) {
         System.out.println("Энергия: " + jaguar.getEnergy() + ", Здоровье: " + jaguar.getHealth());
-        if (jaguar.getHealth() <= 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return jaguar.getHealth() > 0;
     }
 
     private void checkEnergy(Jaguar jaguar) {

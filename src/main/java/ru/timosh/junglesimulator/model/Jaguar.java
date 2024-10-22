@@ -12,7 +12,7 @@ public class Jaguar {
     }
 
     public int getHealth() {
-        return this.health;
+        return health;
     }
 
     public void setEnergy(int energy) {
@@ -20,10 +20,10 @@ public class Jaguar {
     }
 
     public int getEnergy() {
-        return this.energy;
+        return energy;
     }
 
     public double getFANGS() {
-        return this.FANGS;
+        return FANGS;
     }
 }
