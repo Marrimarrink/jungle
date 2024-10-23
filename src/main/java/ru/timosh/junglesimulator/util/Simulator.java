@@ -40,13 +40,10 @@ public class Simulator {
         int health = jaguar.getHealth();
 
         energy = energy + 30;
-        if (energy > 100) {
-            energy = 100;
-        }
         health = health + 20;
-        if (health > 100) {
-            health = 100;
-        }
+
+        correctEnergy(jaguar);
+        correctHealth(jaguar);
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         checkEnergy(jaguar);
@@ -58,9 +55,9 @@ public class Simulator {
         int energy = jaguar.getEnergy();
 
         energy = energy - 4;
-        if (energy < 0) {
-            energy = 0;
-        }
+
+        correctEnergy(jaguar);
+
         jaguar.setEnergy(energy);
         checkEnergy(jaguar);
 
@@ -71,9 +68,9 @@ public class Simulator {
         int energy = jaguar.getEnergy();
 
         energy = energy - 1;
-        if (energy < 0) {
-            energy = 0;
-        }
+
+        correctEnergy(jaguar);
+
         jaguar.setEnergy(energy);
         checkEnergy(jaguar);
 
@@ -84,9 +81,9 @@ public class Simulator {
         int energy = jaguar.getEnergy();
 
         energy = energy - 3;
-        if (energy < 0) {
-            energy = 0;
-        }
+
+        correctEnergy(jaguar);
+
         jaguar.setEnergy(energy);
         checkEnergy(jaguar);
 
@@ -97,9 +94,8 @@ public class Simulator {
         int health = jaguar.getHealth();
 
         health = health + 2;
-        if (health > 100) {
-            health = 100;
-        }
+
+        correctHealth(jaguar);
         jaguar.setHealth(health);
         checkEnergy(jaguar);
 
@@ -111,13 +107,11 @@ public class Simulator {
         int health = jaguar.getHealth();
 
         energy = energy - 15;
-        if (energy < 0) {
-            energy = 0;
-        }
+        health = health - 5;
         health = health + (int) (jaguar.getFANGS() * 4);
-        if (health > 100) {
-            health = 100;
-        }
+
+        correctEnergy(jaguar);
+        correctHealth(jaguar);
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         checkEnergy(jaguar);
@@ -130,13 +124,11 @@ public class Simulator {
         int health = jaguar.getHealth();
 
         energy = energy - 2;
-        if (energy < 0) {
-            energy = 0;
-        }
+        health = health - 5;
         health = health + (int) (jaguar.getFANGS() * 1);
-        if (health > 100) {
-            health = 100;
-        }
+
+        correctEnergy(jaguar);
+        correctHealth(jaguar);
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         checkEnergy(jaguar);
@@ -149,13 +141,10 @@ public class Simulator {
         int health = jaguar.getHealth();
 
         energy = energy + 10;
-        if (energy > 100) {
-            energy = 100;
-        }
         health = health + 5;
-        if (health > 100) {
-            health = 100;
-        }
+
+        correctEnergy(jaguar);
+        correctHealth(jaguar);
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         checkEnergy(jaguar);
@@ -166,9 +155,9 @@ public class Simulator {
     private void runEvent(Jaguar jaguar) {
         int energy = jaguar.getEnergy();
         energy = energy - 7;
-        if (energy < 0) {
-            energy = 0;
-        }
+
+        correctEnergy(jaguar);
+
         jaguar.setEnergy(energy);
         checkEnergy(jaguar);
 
@@ -180,13 +169,11 @@ public class Simulator {
         int health = jaguar.getHealth();
         energy = energy - 10;
 
-        if (energy < 0) {
-            energy = 0;
-        }
+        correctEnergy(jaguar);
+
         health = health - 5;
-        if (health < 0) {
-            health = 0;
-        }
+
+        correctHealth(jaguar);
 
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
@@ -201,13 +188,12 @@ public class Simulator {
         int health = jaguar.getHealth();
         energy = energy - 7;
 
-        if (energy < 0) {
-            energy = 0;
-        }
+        correctEnergy(jaguar);
+
         health = health - 20;
-        if (health < 0) {
-            health = 0;
-        }
+
+        correctHealth(jaguar);
+
         jaguar.setEnergy(energy);
         jaguar.setHealth(health);
         checkEnergy(jaguar);
@@ -229,6 +215,29 @@ public class Simulator {
             }
             jaguar.setHealth(health);
         }
-
     }
+
+    private void correctEnergy(Jaguar jaguar) {
+        int energy = jaguar.getEnergy();
+        if (energy < 0) {
+            energy = 0;
+        }
+        if (energy > 100) {
+            energy = 100;
+        }
+        jaguar.setEnergy(energy);
+    }
+
+    private void correctHealth(Jaguar jaguar) {
+        int health = jaguar.getHealth();
+        if (health < 0) {
+            health = 0;
+        }
+        if (health > 100) {
+            health = 100;
+        }
+        jaguar.setHealth(health);
+    }
+
+
 }
